@@ -24,6 +24,7 @@ namespace mvc_2.Controllers
         [HttpPost]
         public ActionResult Create(Customer customerData)
         {
+            
             CustomerData.Customers.Add(customerData);
             return RedirectToAction("Index");
         }
@@ -51,12 +52,20 @@ namespace mvc_2.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Delete(Customer newcustomer)
+        public ActionResult Delete(int id) // Sil 
         {
-            var customer = CustomerData.Customers.
-                Where(x => x.Id == newcustomer.Id).FirstOrDefault();
-            CustomerData.Customers.Remove(customer);
+            var customer = CustomerData.Customers.Where(o => o.Id == id).FirstOrDefault();
             return View(customer);
         }
+
+        [HttpPost]
+        public ActionResult Delete(Customer customer) // Sil 
+        {
+            Customer DeleteCustomer = CustomerData.Customers.Where(o => o.Id == customer.Id).FirstOrDefault();
+            CustomerData.Customers.Remove(DeleteCustomer);
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

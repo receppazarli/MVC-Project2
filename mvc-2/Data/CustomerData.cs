@@ -17,7 +17,7 @@ namespace mvc_2.Data
                 LastName = "Pazarlı",
                 NationalityId = "11111111111",
                 City = "Bursa",
-                County = "İnegöl",
+                County = "Mudanya",
                 Address = "Merkez mahallesi",
                 Phone = "0123 458 7474"
             },
